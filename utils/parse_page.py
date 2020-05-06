@@ -25,6 +25,8 @@ def get_download_links(url, tags, add_attr="title"):
         link = one_a_tag['href']
         if any([True if x in link else False for x in tags]) and add_attr in str(one_a_tag):
             download_links.append(urljoin(base_url,link))
+    # page extraction goes here
+    soup.decompose()
     return list(set(download_links))
 
 def download_from_link(url, path, chunk_size=2000):
